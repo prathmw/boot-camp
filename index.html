@@ -12,6 +12,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function() {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1138750388420825');
+    fbq('track', 'PageView');
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1138750388420825&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -118,9 +148,9 @@
         })
       });
 
-      // ====== 2. SEND AISENSY MESSAGE (FIXED FORMAT) ======
+      // ====== 2. SEND AISENSY MESSAGE ======
       const aiSensyData = {
-        apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3M2M5NDFiN2I0YWMxMGJlYjhhODM2MCIsIm5hbWUiOiJERU1PIDE5dGggTm92IiwiYXBwTmFtZSI6IkFpU2Vuc3kiLCJjbGllbnRJZCI6IjY3MmRhNDQ1ZTU4N2NkMGJlZDcxZTM1MyIsImFjdGl2ZVBsYW4iOiJQUk9fTU9OVEhMWSIsImlhdCI6MTczODQwNTgyNX0.-cfSHxvF-ReV8TGNX3M65RTKo4vcpvcH9jNjSA1B8Bo",
+        apiKey: "YOUR_API_KEY",
         campaignName: "bootv23",
         destination: "91" + phone,
         userName: name,
@@ -130,13 +160,7 @@
         media: {
           url: "https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/673c941b7b4ac10beb8a8360/6834890_WhatsApp Image 20251203 at 18.42.53b9bf7ec2.jpg",
           filename: "sample_media"
-        },
-
-        buttons: [],
-        carouselCards: [],
-        location: {},
-        attributes: {},
-        paramsFallbackValue: {}
+        }
       };
 
       fetch("https://backend.aisensy.com/campaign/t1/api/v2", {
@@ -148,7 +172,6 @@
         .then(result => {
           console.log("AiSensy Response:", result);
 
-          // SUCCESS CHECK
           if (result?.success || result?.message?.includes("sent")) {
             redirectToWhatsApp();
           } else {
@@ -163,7 +186,6 @@
         });
     }
 
-    // ====== 3. REDIRECT USER TO WHATSAPP LINK ======
     function redirectToWhatsApp() {
       const linkURL = "https://script.google.com/macros/s/AKfycbzDHfEAbNyk0aY2KmlMPkthWYDSRzsEsPTkv_nOq0z2MQOVgjAlW4o3an-Z_Eq5S5bk/exec";
 
@@ -183,5 +205,3 @@
 
 </body>
 </html>
-
-
