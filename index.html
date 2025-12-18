@@ -4,207 +4,201 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7-Day Free BootCamp</title>
-
+  <title>BOOST 10X MEMORY</title>
+  <!-- CSS styles -->
   <link rel="stylesheet" href="/CSS/index.css">
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f, b, e, v, n, t, s) {
-      if (f.fbq) return;
-      n = f.fbq = function() {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n;
-      n.push = n;
-      n.loaded = !0;
-      n.version = '2.0';
-      n.queue = [];
-      t = b.createElement(e);
-      t.async = !0;
-      t.src = v;
-      s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1138750388420825');
-    fbq('track', 'PageView');
-  </script>
-
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1138750388420825&ev=PageView&noscript=1" />
-  </noscript>
-  <!-- End Meta Pixel Code -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
+
   <div class="main">
-
-    <div class="header" style="display: flex; justify-content: center;">
-      <img style="width:170px;" src="assets/Untitled-2.png" alt="logo">
+    <div class="header" style="display: flex; justify-content: center; margin: 0px 0px;">
+      <img style="width: 170px;" src="assets/Untitled-2.png" alt="logo">
     </div>
 
-    <!-- HERO -->
+    <!-- hero section -->
     <div id="hero-section">
-      <h2 style="text-align:center;" class="hero-h2 text-3xl font-bold mb-4">India's Biggest</h2>
-      <h2 style="text-align:center;" class="hero-h2 text-3xl font-bold mb-4">7-Day Free Bootcamp</h2>
-      <div class="hero-img"><img src="assets/DataManagement.png" alt=""></div>
+      <h2 class="hero-h2">BOOST 10X MEMORY</h2>
+      <div class="hero-img">
+        <img
+          src="https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/673c941b7b4ac10beb8a8360/8991745_de.png"
+          alt="Webinar Promo Image">
+      </div>
     </div>
 
-    <!-- FORM -->
     <div id="form-div">
-      <form id="form">
+      <form action="" method="POST" id="form">
+        <!-- user section -->
         <div id="user-section">
-
           <div class="form-group">
-            <label class="label-rq">Full Name</label>
+            <label class="label-rq" for="name">Full Name</label>
             <input type="text" id="name" placeholder="Full Name" required>
           </div>
 
           <div class="form-group">
-            <label class="label-rq">Phone Number</label>
-            <input type="tel" id="wanumber" placeholder="Enter WhatsApp Number" required>
+            <label class="label-rq" for="wanumber">Phone Number</label>
+            <input type="tel" id="wanumber" placeholder="Enter your WhatsApp number" required>
           </div>
 
           <div class="form-group">
-            <label>Email Address</label>
+            <label for="email">Your Email Address</label>
             <input type="email" id="email" placeholder="Email">
           </div>
 
           <div class="form-group">
-            <label class="label-rq">School Name</label>
+            <label class="label-rq" for="reason">School Name</label>
             <textarea id="reason" placeholder="Enter The School Name" required></textarea>
           </div>
 
           <div class="form-group">
-            <label class="label-rq">School Area</label>
+            <label class="label-rq" for="schoolArea">School Area</label>
             <input type="text" id="schoolArea" placeholder="Enter Your School Area" required>
           </div>
 
           <div class="form-group">
-            <label class="label-rq">Class</label>
+            <label class="label-rq" for="className">Class</label>
             <input type="text" id="className" placeholder="Class" required>
           </div>
 
           <div class="form-group">
-            <label class="label-rq">City</label>
+            <label class="label-rq" for="city">City</label>
             <input type="text" id="city" placeholder="Enter Your City Name" required>
           </div>
-
         </div>
 
         <button type="button" id="submitBtn" onclick="submitForm()">Register for Webinar</button>
-
       </form>
     </div>
-  </div>
 
-  <!-- FIXED JAVASCRIPT -->
-  <script>
-    function setLoading(isLoading) {
-      const btn = document.getElementById('submitBtn');
-      btn.textContent = isLoading ? "Loading..." : "Register for Webinar";
-      btn.disabled = isLoading;
-    }
+    <script>
+      const SUPABASE_URL = "https://gcpvdftmhhkhqydtinii.supabase.co";
+      const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcHZkZnRtaGhraHF5ZHRpbmlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc5OTg3MTUsImV4cCI6MjA3MzU3NDcxNX0.58fy1KkigNOGogw7fM_Oycd06AuA-EP2psbtxV_Dvg0";
+      const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    function submitForm() {
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('wanumber').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const school = document.getElementById('reason').value.trim();
-      const schoolArea = document.getElementById('schoolArea').value.trim();
-      const className = document.getElementById('className').value.trim();
-      const city = document.getElementById('city').value.trim();
+      async function submitForm() {
+        // Get form values
+        const phone = document.getElementById('wanumber').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const school = document.getElementById('reason').value;
+        const schoolArea = document.getElementById('schoolArea').value;
+        const className = document.getElementById('className').value;
+        const city = document.getElementById('city').value;
 
-      // VALIDATION
-      if (!name) return alert("Please enter your full name.");
-      if (!phone) return alert("Please enter your phone number.");
-      if (!/^\d{10}$/.test(phone)) return alert("Enter a valid 10-digit phone number.");
+        // Validate phone number
+        const cleanPhone = phone.replace(/\D/g, '');
+        if (cleanPhone.length !== 10) {
+          alert('Please enter a valid 10-digit phone number');
+          return false;
+        }
 
-      setLoading(true);
-
-      // ====== 1. SEND TO GOOGLE SHEET ======
-      const sheetURL = "https://script.google.com/macros/s/AKfycbxFkIDJWRkkQZlc6Si-P4O0xG7r3Hv6Hj-dj9GvuqUWVVQp4qd3zS_461w5Tb-c_u5V/exec";
-
-      fetch(sheetURL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+        const formData = {
           fullName: name,
           phoneNumber: phone,
-          email,
+          email: email,
           schoolName: school,
-          schoolArea,
+          schoolArea: schoolArea,
           class: className,
-          city
-        })
-      });
+          city: city
+        };
 
-      // ====== 2. SEND AISENSY MESSAGE ======
-      const aiSensyData = {
-        apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3M2M5NDFiN2I0YWMxMGJlYjhhODM2MCIsIm5hbWUiOiJERU1PIDE5dGggTm92IiwiYXBwTmFtZSI6IkFpU2Vuc3kiLCJjbGllbnRJZCI6IjY3MmRhNDQ1ZTU4N2NkMGJlZDcxZTM1MyIsImFjdGl2ZVBsYW4iOiJQUk9fTU9OVEhMWSIsImlhdCI6MTczODQwNTgyNX0.-cfSHxvF-ReV8TGNX3M65RTKo4vcpvcH9jNjSA1B8Bo",
-        campaignName: "bootv23",
-        destination: "91" + phone,
-        userName: name,
-        templateParams: [],
-        source: "new-landing-page form",
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbz2o_sJxs2Z2ChaTb_eZOIVC2Yo48aiJjSDK85_h8JF3-tv0HOW4W1XupVbFQEZd0y5gw/exec';
 
-        media: {
-          url: "https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/673c941b7b4ac10beb8a8360/9392822_GeminiGeneratedImagecp9l0fcp9l0fcp9l 1.png",
-          filename: "sample_media"
-        }
-      };
+        const aiSensyData = {
+          apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3M2M5NDFiN2I0YWMxMGJlYjhhODM2MCIsIm5hbWUiOiJERU1PIDE5dGggTm92IiwiYXBwTmFtZSI6IkFpU2Vuc3kiLCJjbGllbnRJZCI6IjY3MmRhNDQ1ZTU4N2NkMGJlZDcxZTM1MyIsImFjdGl2ZVBsYW4iOiJQUk9fTU9OVEhMWSIsImlhdCI6MTczODQwNTgyNX0.-cfSHxvF-ReV8TGNX3M65RTKo4vcpvcH9jNjSA1B8Bo",
+          campaignName: "3decv21",
+          destination: `91${cleanPhone}`,
+          userName: name,
+          templateParams: [],
+          source: "new-landing-page form",
+          media: {
+            url: "https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/673c941b7b4ac10beb8a8360/8862500_PHOTO20250206153940.jpg",
+            filename: "sample_media"
+          },
+          buttons: [],
+          carouselCards: [],
+          location: {},
+          attributes: {},
+          paramsFallbackValue: {}
+        };
 
-      fetch("https://backend.aisensy.com/campaign/t1/api/v2", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(aiSensyData)
-      })
-        .then(res => res.json().catch(() => ({})))
-        .then(result => {
-          console.log("AiSensy Response:", result);
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
 
-          if (result?.success || result?.message?.includes("sent")) {
-            redirectToWhatsApp();
-          } else {
-            setLoading(false);
-            alert("AiSensy Error: " + JSON.stringify(result));
+        try {
+          // Step 1: Send to AiSensy
+          await fetch('https://backend.aisensy.com/campaign/t1/api/v2', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(aiSensyData)
+          });
+
+          // Step 2: Send to Google Sheet
+          await fetch(scriptUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+
+          // Step 3: Get latest WhatsApp group link from Supabase
+          let redirectTo = "https://chat.whatsapp.com/KsuAmwxJwTnJzAC1YbKYeb"; // default fallback
+          const { data, error } = await supabaseClient
+            .from('settings')
+            .select('group_link')
+            .order('id', { ascending: false })
+            .limit(1);
+
+          if (!error && data && data.length > 0 && data[0].group_link) {
+            redirectTo = data[0].group_link;
           }
-        })
-        .catch(err => {
-          console.error("AiSensy Error:", err);
-          setLoading(false);
-          alert("Message sending failed.");
-        });
-    }
 
-    function redirectToWhatsApp() {
-      const linkURL = "https://script.google.com/macros/s/AKfycbzDHfEAbNyk0aY2KmlMPkthWYDSRzsEsPTkv_nOq0z2MQOVgjAlW4o3an-Z_Eq5S5bk/exec";
+          window.location.href = redirectTo;
 
-      fetch(linkURL)
-        .then(res => res.text())
-        .then(url => {
-          setLoading(false);
-          if (url.startsWith("http")) window.location.href = url;
-          else alert("WhatsApp link not found.");
-        })
-        .catch(() => {
-          setLoading(false);
-          alert("Failed to fetch WhatsApp link.");
-        });
-    }
-  </script>
+        } catch (err) {
+          console.error('Error:', err);
+          alert('Failed to send message. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Register for Webinar';
+        }
+      }
+    </script>
 
+  </div>
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
